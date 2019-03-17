@@ -25,7 +25,7 @@ SECRET_KEY = 'c-*7(%jx4vo3fkc#zqi@gg+tqc45ue_raudt3wr_ek!hmt05bh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["irish-trees.herokuapp.com"]
 
 
 # Application definition
