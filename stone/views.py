@@ -26,8 +26,8 @@ def addtree(request):
 
     return render(request, "addtree.html", {'form': form})
 
-def edittree(request, id):
-    tree = get_object_or_404(Tree, pk=id)
+def edittree(request, tree_id):
+    tree = get_object_or_404(Tree, pk=tree_id)
     if request.method == "POST":
         form = TreeForm(request.POST, instance = tree)
         if form.is_valid():
