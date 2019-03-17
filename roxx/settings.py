@@ -21,12 +21,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'c-*7(%jx4vo3fkc#zqi@gg+tqc45ue_raudt3wr_ek!hmt05bh'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["irish-trees.herokuapp.com"]
+# ALLOWED_HOSTS = ["irish-trees.herokuapp.com"]
+
+ALLOWED_HOSTS = [os.environ.get('HOSTNAME')]
 
 
 # Application definition
@@ -75,10 +77,11 @@ WSGI_APPLICATION = 'roxx.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASE_URL = "postgres://jvifnqdaowkopq:32122c3924fcd062d8bb7af16809e9a53d225079ac15669f345ba4580894816a@ec2-54-247-70-127.eu-west-1.compute.amazonaws.com:5432/d33t31djjp5367"
+# DATABASE_URL = "postgres://jvifnqdaowkopq:32122c3924fcd062d8bb7af16809e9a53d225079ac15669f345ba4580894816a@ec2-54-247-70-127.eu-west-1.compute.amazonaws.com:5432/d33t31djjp5367"
 
+# For Heroku deployment, get the database url from Heroku config vars:
 DATABASES = {
-    'default': dj_database_url.parse(DATABASE_URL)
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 
