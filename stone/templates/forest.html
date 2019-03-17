@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forest Audit</title>
+</head>
+<body>
+    <h1>The Trees of the Forest</h1>
+<div class="tree-list">
+    <table>
+        {% for tree in trees %}
+            <tr>
+                <td>{{ tree.name }}:</td>
+                <td>{{ tree.genus }}</td>
+                <td>{{ tree.species }}</td>
+                <td>{% if tree.native %} - Native - {% endif %}</td>
+                <td>{% if tree.conifer %} - Conifer - {% endif %}</td>
+                <td><form method="GET" action="edittree/{{ tree.id }}"><input type="submit" value="Edit" name="edittree"></form></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="addtree">Add a Tree</a>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sylvan Augmentation</title>
+</head>
+<body>
+    <h1>Add a Tree</h1>
+<div class="tree-form">
+    <form method="POST">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <!-- <label for="name">Name</label>
+        <input type="text" name="name" id="name">
+        <br>
+        <label for="genus">Genus</label>
+        <input type="text" name="genus" id="genus">
+        <br>
+        <label for="species">Species</label>
+        <input type="text" name="species" id="species">
+        <br>
+        <label for="native">Native?</label>
+        <input type="checkbox" name="native" id="native">
+        <br>
+        <label for="conifer">Conifer?</label>
+        <input type="checkbox" name="conifer" id="conifer"> -->
+
+
+        <button type="submit">Save</button>
+    </form>
+    
+</div>
+</body>
+</html>
