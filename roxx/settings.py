@@ -74,12 +74,19 @@ WSGI_APPLICATION = 'roxx.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+DATABASE_URL = "postgres://jvifnqdaowkopq:32122c3924fcd062d8bb7af16809e9a53d225079ac15669f345ba4580894816a@ec2-54-247-70-127.eu-west-1.compute.amazonaws.com:5432/d33t31djjp5367"
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': dj_database_url.parse("DATABASE_URL")
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 # Password validation
