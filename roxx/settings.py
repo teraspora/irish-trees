@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'roxx.wsgi.application'
 DATABASE_URL = "postgres://jvifnqdaowkopq:32122c3924fcd062d8bb7af16809e9a53d225079ac15669f345ba4580894816a@ec2-54-247-70-127.eu-west-1.compute.amazonaws.com:5432/d33t31djjp5367"
 
 DATABASES = {
-    'default': dj_database_url.parse("DATABASE_URL")
+    'default': dj_database_url.parse(DATABASE_URL)
 }
 
 
