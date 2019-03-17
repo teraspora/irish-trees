@@ -1,1 +1,1 @@
-web: gunicorn irish-trees.wsgi:application
+web: gunicorn roxx.wsgi:application
