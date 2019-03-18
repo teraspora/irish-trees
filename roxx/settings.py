@@ -15,6 +15,7 @@ import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DEVELOPMENT = True if os.environ.get('DEVELOPMENT') else False
 
 
 # Quick-start development settings - unsuitable for production
@@ -24,11 +25,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = DEVELOPMENT
 
 # ALLOWED_HOSTS = ["irish-trees.herokuapp.com"]
 
-ALLOWED_HOSTS = [os.environ.get('HOSTNAME')]
+ALLOWED_HOSTS = [os.environ.get('HOSTNAME'),
+                 '127.0.0.1'
+                ]
 
 
 # Application definition
@@ -80,17 +83,17 @@ WSGI_APPLICATION = 'roxx.wsgi.application'
 # DATABASE_URL = "postgres://jvifnqdaowkopq:32122c3924fcd062d8bb7af16809e9a53d225079ac15669f345ba4580894816a@ec2-54-247-70-127.eu-west-1.compute.amazonaws.com:5432/d33t31djjp5367"
 
 # For Heroku deployment, get the database url from Heroku config vars:
-DATABASES = {
+if not DEVELOPMENT:
+    DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-}
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+    } 
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 # Password validation
